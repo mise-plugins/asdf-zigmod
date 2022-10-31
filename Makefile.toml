@@ -1,0 +1,68 @@
+[config]
+skip_core_tasks = true
+
+[tasks.lint]
+category = "Tools"
+description = "Run linters without changes"
+script = [
+  "./scripts/shellcheck.bash",
+  "./scripts/shfmt.bash",
+  "dprint check",
+]
+
+[tasks.format]
+category = "Tools"
+description = "Run formatters with changes"
+script = [
+  "shfmt --write ./bin/* ./lib/*",
+  "dprint fmt",
+]
+
+[tasks.check_no_git_diff]
+category = "Tools"
+description = 'asdf built-in "plugin test" requires git managed codes. This prevents unexpected run'
+script = [
+  '(git add --intent-to-add . && git diff --exit-code) || (echo "You should commit all diff before running tests"; exit 1)',
+]
+
+[tasks.test]
+category = "Tools"
+description = 'Run tests with `asdf plugin test`'
+dependencies = [
+  "check_no_git_diff",
+]
+script = [
+  'asdf plugin test cargo-make ./.git --asdf-plugin-gitref "$(git rev-parse --abbrev-ref HEAD)" "cargo-make make --version"',
+]
+
+[tasks.check]
+category = "Tools"
+description = 'Should pass before merging PR'
+dependencies = [
+  "lint",
+  "test",
+]
+
+[tasks.setup]
+category = "Tools"
+description = 'Install dependencies'
+# Specify git-url even if they are registered in https://github.com/asdf-vm/asdf-plugins instead of using short-name.
+# To consider use-case of enabling `disable_plugin_short_name_repository=yes`
+script = [
+  # https://github.com/asdf-vm/asdf-plugins/blob/6498384c22a29602d065d3db681b8f32f7e4295b/plugins/cargo-make#L1
+  '(asdf plugin-list | grep cargo-make) || asdf plugin-add cargo-make https://github.com/kachick/asdf-zigmod.git',
+  # https://github.com/asdf-vm/asdf-plugins/blob/6498384c22a29602d065d3db681b8f32f7e4295b/plugins/dprint#L1
+  '(asdf plugin-list | grep dprint) || asdf plugin-add dprint https://github.com/asdf-community/asdf-dprint.git',
+  # https://github.com/asdf-vm/asdf-plugins/blob/6498384c22a29602d065d3db681b8f32f7e4295b/plugins/shellcheck#L1
+  '(asdf plugin-list | grep shellcheck) || asdf plugin-add shellcheck https://github.com/luizm/asdf-shellcheck.git',
+  # https://github.com/asdf-vm/asdf-plugins/blob/6498384c22a29602d065d3db681b8f32f7e4295b/plugins/shfmt#L1
+  '(asdf plugin-list | grep shfmt) || asdf plugin-add shfmt https://github.com/luizm/asdf-shfmt.git',
+  'asdf install',
+]
+
+[tasks.help]
+category = "Tools"
+description = 'Might help you - (This one)'
+script = [
+  'makers --list-category-steps Tools',
+]

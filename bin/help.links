@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cat <<EOD
+zigmod: https://github.com/nektro/zigmod
+asdf plugin: https://github.com/kachick/asdf-zigmod
+available with short-name: Not Yet
+update .tool-versions with renovate: Net Yet. Planned in https://github.com/kachick/renovate-config-asdf
+EOD
