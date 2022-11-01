@@ -8,8 +8,8 @@ plugin_dir=$(dirname "$(dirname "$current_script_path")")
 # shellcheck source=../lib/utils.bash
 source "${plugin_dir}/lib/utils.bash"
 
-if echo "$ASDF_INSTALL_VERSION" | grep -qE '^v[1-8]-'; then
-  fail "This plugin supports zigmod version since v9-a3772ea"
+if echo "$ASDF_INSTALL_VERSION" | grep -qF '-'; then
+  fail "This plugin supports zigmod version since v21"
 fi
 
 mkdir -p "$ASDF_DOWNLOAD_PATH"
