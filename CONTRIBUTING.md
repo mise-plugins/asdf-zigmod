@@ -1,10 +1,9 @@
 # Contributing
 
-You should install asdf and cargo-make before this guide.\
 After installing asdf, running below command in this repo finishes setups.
 
 ```console
-$ asdf plugin-add cargo-make https://github.com/kachick/asdf-zigmod.git
+$ asdf plugin-add cargo-make https://github.com/kachick/asdf-zigmod.git # Needed when you turned "disable_plugin_short_name_repository"
 $ asdf install cargo-make
 $ makers setup
 cargo-make 0.36.2 is already installed
@@ -39,16 +38,11 @@ $ makers check
 [cargo-make] INFO - Running Task: lint
 [cargo-make] INFO - Running Task: check_no_git_diff
 [cargo-make] INFO - Running Task: test
-Updating cargo-make to your-branch
-Already on 'your-branch'
-Your branch is up to date with 'origin/your-branch'.
-* Downloading cargo-make release 0.36.2...
-Archive:  /tmp/asdf.919U/downloads/cargo-make/0.36.2/cargo-make-0.36.2.zip
-  inflating: /tmp/asdf.919U/downloads/cargo-make/0.36.2/LICENSE
-  inflating: /tmp/asdf.919U/downloads/cargo-make/0.36.2/README.md
-  inflating: /tmp/asdf.919U/downloads/cargo-make/0.36.2/makers
-  inflating: /tmp/asdf.919U/downloads/cargo-make/0.36.2/cargo-make
-cargo-make 0.36.2 installation was successful!
-cargo-make 0.36.2
-[cargo-make] INFO - Build Done in 3.47 seconds.
+Updating asdf-zigmod to main
+Already on 'main'
+Your branch is up to date with 'origin/main'.
+* Downloading zigmod release r83...
+zigmod r83 installation was successful!
+zigmod r83 linux x86_64 musl
+[cargo-make] INFO - Build Done in 2.65 seconds.
 ```
