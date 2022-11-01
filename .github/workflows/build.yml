@@ -21,7 +21,6 @@ jobs:
           - macos-latest
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
       - uses: asdf-vm/actions/plugin-test@v1
         with:
           command: 'zigmod version'
@@ -35,7 +34,6 @@ jobs:
           - macos-latest
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
       - uses: asdf-vm/actions/plugin-test@v1
         with:
           # v8 is the first turning point of the assets naming. See comments in function of download_release() for further detail.
@@ -45,7 +43,6 @@ jobs:
     timeout-minutes: 10
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
       - uses: pguyot/arm-runner-action@v2
         id: build_image
         with:
