@@ -36,8 +36,8 @@ jobs:
     steps:
       - uses: asdf-vm/actions/plugin-test@v1
         with:
-          # v8 is the first turning point of the assets naming. See comments in function of download_release() for further detail.
-          version: 'v8-1993719'
+          # v9 is the first turning point of the assets naming. See comments in function of download_release() for further detail.
+          version: 'v9-a3772ea'
           command: 'zigmod version'
   plugin_test_latest_for_aarch64:
     timeout-minutes: 10

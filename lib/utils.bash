@@ -58,12 +58,13 @@ download_release() {
   # Note
   #   - "zigmod" uploads non archived binary files to the GitHub releases.
   #   - "zigmod" changed versioning prefix from "v*" to "r*". See `../bin/latest-stable` for futher detail
-  #   - Earlier than v8 having different naming style
+  #   - Earlier than v9 having different naming style for the assets
   #       - https://github.com/nektro/zigmod/releases/tag/r75
   #       - https://github.com/nektro/zigmod/releases/tag/v21
   #       - https://github.com/nektro/zigmod/releases/tag/v20-0ef0ceb
-  #       - https://github.com/nektro/zigmod/releases/tag/v8-1993719
-  #       - https://github.com/nektro/zigmod/releases/tag/v7-b0fd757
+  #       - https://github.com/nektro/zigmod/releases/tag/v9-a3772ea
+  #       - https://github.com/nektro/zigmod/releases/tag/v8-1993719 # different
+  #       - https://github.com/nektro/zigmod/releases/tag/v7-b0fd757 # more different!
   local url="$GH_REPO/releases/download/${version}/zigmod-${architecture}-${platform}"
 
   echo "* Downloading $TOOL_NAME release $version..."
