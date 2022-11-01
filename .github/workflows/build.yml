@@ -11,7 +11,7 @@ on:
       - '**.md'
 
 jobs:
-  plugin_test_latest:
+  plugin-test:
     timeout-minutes: 10
     strategy:
       fail-fast: false
@@ -19,24 +19,12 @@ jobs:
         os:
           - ubuntu-latest
           - macos-latest
+        tool-version:
+          - 'latest'
+          - 'v51' # Supporting oldest
     runs-on: ${{ matrix.os }}
     steps:
       - uses: asdf-vm/actions/plugin-test@v1
         with:
-          command: 'zigmod version'
-  plugin_test_oldest:
-    timeout-minutes: 10
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - ubuntu-latest
-          - macos-latest
-    runs-on: ${{ matrix.os }}
-    steps:
-      - uses: asdf-vm/actions/plugin-test@v1
-        with:
-          # https://github.com/kachick/asdf-zigmod/blob/8a7095692e6a880568a5b48c441ea518ef6a61cb/bin/download#L12
-          # https://github.com/kachick/asdf-zigmod/blob/8a7095692e6a880568a5b48c441ea518ef6a61cb/lib/utils.bash#L59-L61
-          version: 'UPDATE ME!'
+          version: ${{ matrix.tool-version }}
           command: 'zigmod version'

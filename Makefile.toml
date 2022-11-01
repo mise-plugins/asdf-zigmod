@@ -32,7 +32,7 @@ dependencies = [
   "check_no_git_diff",
 ]
 script = [
-  'asdf plugin test cargo-make ./.git --asdf-plugin-gitref "$(git rev-parse --abbrev-ref HEAD)" "cargo-make make --version"',
+  'asdf plugin test asdf-zigmod ./.git --asdf-plugin-gitref "$(git rev-parse --abbrev-ref HEAD)" "zigmod version"',
 ]
 
 [tasks.check]

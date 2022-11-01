@@ -3,6 +3,6 @@
 set -euo pipefail
 
 cat <<EOD
-cargo-make plugin for the asdf version manager
+zigmod plugin for the asdf version manager
 
 EOD

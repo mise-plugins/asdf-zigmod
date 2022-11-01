@@ -11,7 +11,7 @@
 
 # Dependencies
 
-- `bash`, `curl`, `unzip`: generic POSIX utilities.
+- `bash`, `curl`: generic POSIX utilities.
 
 # Install
 
@@ -21,7 +21,7 @@ Plugin:
 asdf plugin add zigmod https://github.com/kachick/asdf-zigmod.git
 ```
 
-[short-name is also available](https://github.com/asdf-vm/asdf-plugins/blob/6498384c22a29602d065d3db681b8f32f7e4295b/plugins/zigmod#L1) when you does not use [disable_plugin_short_name_repository](https://asdf-vm.com/manage/configuration.html#disable-plugin-short-name-repository)
+short-name is not yet available
 
 ```shell
 asdf plugin add zigmod
@@ -36,7 +36,9 @@ $ asdf list-all zigmod
 # Install specific version
 $ asdf install zigmod latest
 
-# NOTE: This plugin supports only zigmod 0.16.0+
+# NOTE:
+#   - This plugin supports zigmod versions v51 or later
+#   - r* is newer prefix than v*
 
 # Set a version globally (on your ~/.tool-versions file)
 $ asdf global zigmod latest
@@ -51,7 +53,7 @@ install & manage versions.
 
 # Contributing
 
-Contributions of any kind welcome! See the [contributing guide](contributing.md).
+Contributions of any kind welcome! See the [contributing guide](CONTRIBUTING.md).
 
 # License
 
