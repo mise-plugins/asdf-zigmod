@@ -5,6 +5,7 @@ set -euo pipefail
 GH_REPO="https://github.com/nektro/zigmod"
 TOOL_NAME="zigmod"
 
+# `version` exists since v51 https://github.com/nektro/zigmod/commit/ef20897b8196b4f3da3ee9bcc5ab731851d3aa2b
 TOOL_TEST="zigmod version"
 
 fail() {
@@ -60,7 +61,7 @@ download_release() {
   #   - "zigmod" changed versioning prefix from "v*" to "r*". See `../bin/latest-stable` for futher detail
   #   - Earlier than v21 having different naming style for the assets
   #       - https://github.com/nektro/zigmod/releases/tag/r75
-  #       - https://github.com/nektro/zigmod/releases/tag/v21
+  #       - https://github.com/nektro/zigmod/releases/tag/v21 # Naming style is same. However doesn't have `version` command.
   #       - https://github.com/nektro/zigmod/releases/tag/v20-0ef0ceb # different
   #       - https://github.com/nektro/zigmod/releases/tag/v8-1993719 # more different
   #       - https://github.com/nektro/zigmod/releases/tag/v7-b0fd757 # much different!

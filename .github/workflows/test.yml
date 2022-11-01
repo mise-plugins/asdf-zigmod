@@ -1,4 +1,4 @@
-name: Build
+name: Test
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
       - '**.md'
 
 jobs:
-  plugin_test_latest:
+  latest:
     timeout-minutes: 10
     strategy:
       fail-fast: false
@@ -24,7 +24,7 @@ jobs:
       - uses: asdf-vm/actions/plugin-test@v1
         with:
           command: 'zigmod version'
-  plugin_test_oldest:
+  oldest_for_testing_subcommand:
     timeout-minutes: 10
     strategy:
       fail-fast: false
@@ -36,10 +36,26 @@ jobs:
     steps:
       - uses: asdf-vm/actions/plugin-test@v1
         with:
-          # We support since v21 for simplicity. See comments in function of download_release() for further detail.
+          version: 'v51'
+          # `version` subcommand exists since v51 https://github.com/nektro/zigmod/commit/ef20897b8196b4f3da3ee9bcc5ab731851d3aa2b
+          command: 'zigmod version'
+  oldest_for_assets_naming:
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: asdf-vm/actions/plugin-test@v1
+        with:
+          # See comments in function of download_release() for further detail.
           version: 'v21'
-          command: 'zigmod version'
-  plugin_test_latest_for_aarch64:
+          # `version` subcommand exists since v51 https://github.com/nektro/zigmod/commit/ef20897b8196b4f3da3ee9bcc5ab731851d3aa2b
+          command: 'zigmod'
+  latest_for_aarch64:
     timeout-minutes: 10
     runs-on: ${{ matrix.os }}
     steps:

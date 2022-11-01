@@ -9,7 +9,7 @@ plugin_dir=$(dirname "$(dirname "$current_script_path")")
 source "${plugin_dir}/lib/utils.bash"
 
 if echo "$ASDF_INSTALL_VERSION" | grep -qF '-'; then
-  fail "This plugin supports zigmod version since v21"
+  fail "Supporting zigmod version since v51. However v21...v50 might work if we look just at the assets naming styles. So this plugin does not block them."
 fi
 
 mkdir -p "$ASDF_DOWNLOAD_PATH"
