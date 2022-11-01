@@ -21,11 +21,7 @@ Plugin:
 asdf plugin add zigmod https://github.com/kachick/asdf-zigmod.git
 ```
 
-short-name is not yet available
-
-```shell
-asdf plugin add zigmod
-```
+short-name style `asdf plugin add zigmod` is not yet available
 
 zigmod:
 
