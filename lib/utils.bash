@@ -49,6 +49,10 @@ list_all_versions() {
   list_github_tags
 }
 
+list_sorted_all_supporting_versions() {
+  list_all_versions | filter_supporting_zigmod_versions | sort_supportable_zigmod_versions
+}
+
 download_release() {
   local version filename url
   version="$1"
