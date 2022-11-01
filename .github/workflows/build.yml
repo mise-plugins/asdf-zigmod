@@ -20,7 +20,7 @@ jobs:
           - ubuntu-latest
           - macos-latest
         tool-version:
-          - 'latest'
+          - '' # Empty should be latest
           - 'v51' # Supporting oldest
     runs-on: ${{ matrix.os }}
     steps:
