@@ -50,14 +50,3 @@ jobs:
           version: 'v21'
           # `version` subcommand exists since v51 https://github.com/nektro/zigmod/commit/ef20897b8196b4f3da3ee9bcc5ab731851d3aa2b
           command: 'zigmod'
-  latest_for_aarch64:
-    timeout-minutes: 10
-    runs-on: ubuntu-latest
-    steps:
-      - uses: pguyot/arm-runner-action@v2
-        id: build_image
-        with:
-          base_image: raspios_lite_arm64:latest
-      - uses: asdf-vm/actions/plugin-test@v1
-        with:
-          command: 'zigmod version'
