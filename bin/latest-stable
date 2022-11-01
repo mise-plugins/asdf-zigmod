@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# zigmod changed versioning prefix from "v*" to "r*"
+#   - Since r75. - https://github.com/nektro/zigmod/compare/v98...r75#diff-7618f5168e5222f8c0abc2df987536d51d98f2ef5e34958e08420a187ffc5613L7-R5
+#   - No reasons were written. - https://github.com/nektro/zigmod/commit/410c2e98a2c986885ce7677160b7212db69d223e
+./list-all | tail -1
