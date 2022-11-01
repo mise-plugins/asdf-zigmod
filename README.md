@@ -11,7 +11,7 @@
 
 # Dependencies
 
-- `bash`, `curl`, `unzip`: generic POSIX utilities.
+- `bash`, `curl`: generic POSIX utilities.
 
 # Install
 
@@ -21,7 +21,7 @@ Plugin:
 asdf plugin add zigmod https://github.com/kachick/asdf-zigmod.git
 ```
 
-[short-name is also available](https://github.com/asdf-vm/asdf-plugins/blob/6498384c22a29602d065d3db681b8f32f7e4295b/plugins/zigmod#L1) when you does not use [disable_plugin_short_name_repository](https://asdf-vm.com/manage/configuration.html#disable-plugin-short-name-repository)
+short-name is not yet available
 
 ```shell
 asdf plugin add zigmod

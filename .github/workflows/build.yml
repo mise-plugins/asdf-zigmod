@@ -36,7 +36,18 @@ jobs:
     steps:
       - uses: asdf-vm/actions/plugin-test@v1
         with:
-          # https://github.com/kachick/asdf-zigmod/blob/8a7095692e6a880568a5b48c441ea518ef6a61cb/bin/download#L12
-          # https://github.com/kachick/asdf-zigmod/blob/8a7095692e6a880568a5b48c441ea518ef6a61cb/lib/utils.bash#L59-L61
-          version: 'UPDATE ME!'
+          # v8 is the first turning point of the assets naming. See comments in function of download_release() for further detail.
+          version: 'v8-1993719'
+          command: 'zigmod version'
+  plugin_test_latest_for_aarch64:
+    timeout-minutes: 10
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pguyot/arm-runner-action@v2
+        id: build_image
+        with:
+          base_image: raspios_lite_arm64:latest
+      - uses: asdf-vm/actions/plugin-test@v1
+        with:
           command: 'zigmod version'

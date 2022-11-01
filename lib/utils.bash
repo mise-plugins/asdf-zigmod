@@ -25,8 +25,7 @@ sort_versions() {
 
 list_github_tags() {
   git ls-remote --tags --refs "$GH_REPO" |
-    grep -o 'refs/tags/.*' | cut -d/ -f3- |
-    sed 's/^v//' # NOTE: You might want to adapt this sed to remove non-version strings from tags
+    grep -o 'refs/tags/.*' | cut -d/ -f3-
 }
 
 list_all_versions() {
@@ -41,8 +40,8 @@ download_release() {
   local platform
 
   case "$OSTYPE" in
-  darwin*) platform="apple-darwin" ;;
-  linux*) platform="unknown-linux-musl" ;;
+  darwin*) platform="macos" ;;
+  linux*) platform="linux" ;;
   *) fail "Unsupported platform" ;;
   esac
 
@@ -50,14 +49,22 @@ download_release() {
 
   case "$(uname -m)" in
   x86_64*) architecture="x86_64" ;;
+  aarch64 | arm64) architecture="aarch64" ;;
   *) fail "Unsupported architecture" ;;
   esac
 
-  local archive_format="zip"
-
   # Snapshot of the addressies are below
-  # Update Me
-  local url="$GH_REPO/releases/download/${version}/${version}-${architecture}-${platform}.${archive_format}"
+  #   - https://github.com/nektro/zigmod/releases/download/r83/zigmod-x86_64-linux
+  # Note
+  #   - "zigmod" uploads non archived binary files to the GitHub releases.
+  #   - "zigmod" changed versioning prefix from "v*" to "r*". See `../bin/latest-stable` for futher detail
+  #   - Earlier than v8 having different naming style
+  #       - https://github.com/nektro/zigmod/releases/tag/r75
+  #       - https://github.com/nektro/zigmod/releases/tag/v21
+  #       - https://github.com/nektro/zigmod/releases/tag/v20-0ef0ceb
+  #       - https://github.com/nektro/zigmod/releases/tag/v8-1993719
+  #       - https://github.com/nektro/zigmod/releases/tag/v7-b0fd757
+  local url="$GH_REPO/releases/download/${version}/zigmod-${architecture}-${platform}"
 
   echo "* Downloading $TOOL_NAME release $version..."
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"

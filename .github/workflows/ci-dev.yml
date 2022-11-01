@@ -17,8 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: asdf-vm/actions/setup@v1
-      - run: 'asdf plugin-add cargo-make https://github.com/kachick/asdf-zigmod.git'
-      - run: 'asdf install cargo-make'
+      - run: 'asdf install'
       - run: 'makers help'
       - run: 'makers setup'
       - run: 'makers check'
