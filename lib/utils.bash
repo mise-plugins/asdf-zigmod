@@ -8,8 +8,14 @@ TOOL_NAME="zigmod"
 # `version` exists since v51 https://github.com/nektro/zigmod/commit/ef20897b8196b4f3da3ee9bcc5ab731851d3aa2b
 TOOL_TEST="zigmod version"
 
+supporting_zigmod_version_pattern='^(r|v[6-9][0-9]|v5[1-9])'
+
+filter_supporting_zigmod_versions() {
+  grep -E "$supporting_zigmod_version_pattern"
+}
+
 is_supporting_zigmod_version() {
-  (echo "$ASDF_INSTALL_VERSION" | grep -qE '^r') || (echo "$ASDF_INSTALL_VERSION" | grep -qE '^v[6-9][0-9]') || (echo "$ASDF_INSTALL_VERSION" | grep -qE '^v5[1-9]')
+  echo "$ASDF_INSTALL_VERSION" | grep -qE "$supporting_zigmod_version_pattern"
 }
 
 fail() {
@@ -23,9 +29,15 @@ if [ -n "${GITHUB_API_TOKEN:-}" ]; then
   curl_opts=("${curl_opts[@]}" -H "Authorization: token $GITHUB_API_TOKEN")
 fi
 
-sort_versions() {
-  sed 'h; s/[+-]/./g; s/.p\([[:digit:]]\)/.z\1/; s/$/.z/; G; s/\n/ /' |
-    LC_ALL=C sort -t. -k 1,1 -k 2,2n -k 3,3n -k 4,4n -k 5,5n | awk '{print $2}'
+sort_supportable_zigmod_versions() {
+  local sortables
+  sortables="$(cat -)"
+
+  # zigmod changed versioning prefix from "v*" to "r*"
+  #   - Since r75. - https://github.com/nektro/zigmod/compare/v98...r75#diff-7618f5168e5222f8c0abc2df987536d51d98f2ef5e34958e08420a187ffc5613L7-R5
+  #   - No reasons were written. - https://github.com/nektro/zigmod/commit/410c2e98a2c986885ce7677160b7212db69d223e
+  echo "$sortables" | grep -E '^v'
+  echo "$sortables" | grep -E '^r'
 }
 
 list_github_tags() {
