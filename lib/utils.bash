@@ -8,6 +8,14 @@ TOOL_NAME="zigmod"
 # `version` exists since v51 https://github.com/nektro/zigmod/commit/ef20897b8196b4f3da3ee9bcc5ab731851d3aa2b
 TOOL_TEST="zigmod version"
 
+is_supporting_zigmod_version() {
+  (echo "$ASDF_INSTALL_VERSION" | grep -qE '^r') || (echo "$ASDF_INSTALL_VERSION" | grep -qE '^v[6-9][0-9]') || (echo "$ASDF_INSTALL_VERSION" | grep -qE '^v5[1-9]')
+}
+
+oldest_supporting_zigmod_version() {
+  echo "v51"
+}
+
 fail() {
   echo -e "asdf-$TOOL_NAME: $*"
   exit 1

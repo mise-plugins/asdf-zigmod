@@ -11,7 +11,7 @@ on:
       - '**.md'
 
 jobs:
-  test-latest:
+  plugin-test:
     timeout-minutes: 10
     strategy:
       fail-fast: false
@@ -19,34 +19,12 @@ jobs:
         os:
           - ubuntu-latest
           - macos-latest
+        tool-version:
+          - 'latest'
+          - 'v51' # Supporting oldest
     runs-on: ${{ matrix.os }}
     steps:
       - uses: asdf-vm/actions/plugin-test@v1
         with:
+          version: ${{ matrix.tool-version }}
           command: 'zigmod version'
-  test-oldest_for_testing_subcommand:
-    timeout-minutes: 10
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - ubuntu-latest
-          - macos-latest
-    runs-on: ${{ matrix.os }}
-    steps:
-      - uses: asdf-vm/actions/plugin-test@v1
-        with:
-          version: 'v51'
-          # `version` subcommand exists since v51 https://github.com/nektro/zigmod/commit/ef20897b8196b4f3da3ee9bcc5ab731851d3aa2b
-          command: 'zigmod version'
-  test-oldest_for_assets_naming:
-    timeout-minutes: 10
-    # v21 does not pass tests only in MacOS. `Abort trap: 6           "$@"`
-    runs-on: ubuntu-latest
-    steps:
-      - uses: asdf-vm/actions/plugin-test@v1
-        with:
-          # See comments in function of download_release() for further detail.
-          version: 'v21'
-          # `version` subcommand exists since v51 https://github.com/nektro/zigmod/commit/ef20897b8196b4f3da3ee9bcc5ab731851d3aa2b
-          command: 'zigmod'
