@@ -1,5 +1,10 @@
 name: Build
 
+# To keep consistency for private repositories
+permissions:
+  contents: write
+  pull-requests: write
+
 on:
   push:
     branches:
