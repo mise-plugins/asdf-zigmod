@@ -1,4 +1,4 @@
-name: Test
+name: Build
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
       - '**.md'
 
 jobs:
-  latest:
+  test-latest:
     timeout-minutes: 10
     strategy:
       fail-fast: false
@@ -24,7 +24,7 @@ jobs:
       - uses: asdf-vm/actions/plugin-test@v1
         with:
           command: 'zigmod version'
-  oldest_for_testing_subcommand:
+  test-oldest_for_testing_subcommand:
     timeout-minutes: 10
     strategy:
       fail-fast: false
@@ -39,7 +39,7 @@ jobs:
           version: 'v51'
           # `version` subcommand exists since v51 https://github.com/nektro/zigmod/commit/ef20897b8196b4f3da3ee9bcc5ab731851d3aa2b
           command: 'zigmod version'
-  oldest_for_assets_naming:
+  test-oldest_for_assets_naming:
     timeout-minutes: 10
     # v21 does not pass tests only in MacOS. `Abort trap: 6           "$@"`
     runs-on: ubuntu-latest

@@ -1,4 +1,4 @@
-# asdf-zigmod [![Build](https://github.com/kachick/asdf-zigmod/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/kachick/asdf-zigmod/actions/workflows/test.yml?query=branch%3Amain) [![Lint](https://github.com/kachick/asdf-zigmod/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/kachick/asdf-zigmod/actions/workflows/lint.yml?query=branch%3Amain)
+# asdf-zigmod [![Build](https://github.com/kachick/asdf-zigmod/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/kachick/asdf-zigmod/actions/workflows/build.yml?query=branch%3Amain) [![Lint](https://github.com/kachick/asdf-zigmod/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/kachick/asdf-zigmod/actions/workflows/lint.yml?query=branch%3Amain)
 
 [zigmod](https://github.com/nektro/zigmod) plugin for the [asdf version manager](https://asdf-vm.com).
 
