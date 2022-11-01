@@ -41,13 +41,8 @@ jobs:
           command: 'zigmod version'
   oldest_for_assets_naming:
     timeout-minutes: 10
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - ubuntu-latest
-          - macos-latest
-    runs-on: ${{ matrix.os }}
+    # v21 does not pass tests only in MacOS. `Abort trap: 6           "$@"`
+    runs-on: ubuntu-latest
     steps:
       - uses: asdf-vm/actions/plugin-test@v1
         with:
@@ -57,7 +52,7 @@ jobs:
           command: 'zigmod'
   latest_for_aarch64:
     timeout-minutes: 10
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - uses: pguyot/arm-runner-action@v2
         id: build_image
