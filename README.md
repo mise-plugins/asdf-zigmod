@@ -21,7 +21,11 @@ Plugin:
 asdf plugin add zigmod https://github.com/kachick/asdf-zigmod.git
 ```
 
-short-name style `asdf plugin add zigmod` is not yet available
+[short-name specifier is also available](https://github.com/asdf-vm/asdf-plugins/blob/82969331df11ba93e8bcfde89fc22da5f5874ac4/plugins/zigmod#L1) when you don't turn [disable_plugin_short_name_repository](https://asdf-vm.com/manage/configuration.html#disable-plugin-short-name-repository)
+
+```shell
+asdf plugin add zigmod
+```
 
 zigmod:
 
