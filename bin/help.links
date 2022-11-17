@@ -6,5 +6,5 @@ cat <<EOD
 zigmod: https://github.com/nektro/zigmod
 asdf plugin: https://github.com/kachick/asdf-zigmod
 available with short-name: https://github.com/asdf-vm/asdf-plugins/pull/698
-update .tool-versions with renovate: We don't plan in https://github.com/kachick/renovate-config-asdf. Because the versioning is much different from semver.
+how to update .tool-versions: We don't plan in https://github.com/kachick/renovate-config-asdf. Because the versioning is much different from semver.
 EOD
