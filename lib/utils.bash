@@ -8,7 +8,7 @@ TOOL_NAME="zigmod"
 # `version` exists since v51 https://github.com/nektro/zigmod/commit/ef20897b8196b4f3da3ee9bcc5ab731851d3aa2b
 TOOL_TEST="zigmod version"
 
-supporting_zigmod_version_pattern='^(r|v[6-9][0-9]|v5[1-9])'
+supporting_zigmod_version_pattern='^(r|v[6-9][0-9]|v5[1-9]|latest)'
 
 filter_supporting_zigmod_versions() {
   grep -E "$supporting_zigmod_version_pattern"
