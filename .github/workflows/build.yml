@@ -24,7 +24,7 @@ jobs:
           - 'v51' # Supporting oldest
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: asdf-vm/actions/plugin-test@v1
+      - uses: asdf-vm/actions/plugin-test@v2
         with:
           version: ${{ matrix.tool-version }}
           command: 'zigmod version'
