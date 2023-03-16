@@ -1,0 +1,42 @@
+name: rtx
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  plugin-test:
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+        target:
+          - command: rtx x zigmod@latest -- zigmod version
+          - command: rtx x zigmod@v51 -- zigmod version
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: jdxcode/rtx-action@v1
+        with:
+          tool_versions: |
+            # Should not set cargo-make versions here. (Actually shellcheck is not used here)
+            shellcheck 0.9.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup rtx
+        run: |
+          rtx plugins install zigmod https://github.com/kachick/asdf-zigmod.git#${{ github.ref }}
+      - name: Test
+        run: |
+          ${{ matrix.target.command }}
+        env:
+          # https://github.com/jdxcode/rtx/issues/188#issuecomment-1441835716
+          RTX_MISSING_RUNTIME_BEHAVIOR: autoinstall
