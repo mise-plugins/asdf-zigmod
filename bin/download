@@ -9,7 +9,6 @@ plugin_dir=$(dirname "$(dirname "$current_script_path")")
 source "${plugin_dir}/lib/utils.bash"
 
 if ! is_supporting_zigmod_version; then
-  echo "debug: $RTX_INSTALL_VERSION"
   fail "Supporting zigmod versions are v51 or higher. But you specified '$ASDF_INSTALL_VERSION'"
 fi
 
