@@ -8,7 +8,7 @@ script = [
   "./scripts/lint.bash",
 ]
 
-[tasks.format]
+[tasks.fmt]
 category = "Tools"
 description = "Run formatters with changes"
 script = [
