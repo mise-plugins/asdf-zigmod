@@ -78,7 +78,7 @@ download_release() {
 	#   - https://github.com/nektro/zigmod/releases/download/r83/zigmod-x86_64-linux
 	# Note
 	#   - "zigmod" uploads non archived binary files to the GitHub releases.
-	#   - "zigmod" changed versioning prefix from "v*" to "r*". See `../bin/latest-stable` for futher detail
+	#   - "zigmod" changed versioning prefix from "v*" to "r*". See `../bin/latest-stable` for further detail
 	#   - Earlier than v21 having different naming style for the assets
 	#       - https://github.com/nektro/zigmod/releases/tag/r75
 	#       - https://github.com/nektro/zigmod/releases/tag/v21 # Naming style is same. However doesn't have `version` command.
