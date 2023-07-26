@@ -3,6 +3,6 @@
 set -euxo pipefail
 
 shfmt --language-dialect bash --write \
-  ./**/*
+	./**/*
 
 dprint fmt
