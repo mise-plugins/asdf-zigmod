@@ -13,16 +13,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: asdf-vm/actions/setup@v2
-      - run: 'asdf plugin-add yamlfmt .'
       - uses: asdf-vm/actions/install@v2
       - run: makers lint
-
-  # TODO: Merge into asdf flow if approved https://github.com/asdf-vm/asdf-plugins/pull/858
-  typos:
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      # Pointing to the master branch is now acceptable for this action.
-      - uses: crate-ci/typos@master
