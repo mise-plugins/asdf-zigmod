@@ -1,0 +1,50 @@
+name: Update dprint plugins
+on:
+  push:
+    branches: ['main']
+    paths:
+      - '.github/workflows/dprint-update-plugin.yml'
+  schedule:
+    # Every 10:42 JST
+    # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+    - cron: '42 1 * * *'
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+# Allow one concurrent updates
+concurrency:
+  group: 'dprint'
+  cancel-in-progress: true
+
+jobs:
+  asdf-parser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+      - uses: kachick/action-parse-asdf-tool-versions@v3
+        id: parse
+    outputs:
+      tool-versions: '${{ steps.parse.outputs.json }}'
+
+  update:
+    needs: [asdf-parser]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - id: update-dprint-plugins
+        uses: kachick/action-update-dprint-plugins@v1
+        with:
+          base-branch: 'main'
+          dprint-version: '${{ fromJson(needs.asdf-parser.outputs.tool-versions).dprint }}'
+      # Enable `Allow auto-merge` in your repository settings if you need following steps
+      - name: Merge sent PR
+        # Merge if `dprint fmt` does not make any diff even after updating plugins
+        if: ${{ steps.update-dprint-plugins.outputs.pr_url != '' && steps.update-dprint-plugins.outputs.fmt == 'false' }}
+        run: gh pr merge --auto --squash --delete-branch "${{ steps.update-dprint-plugins.outputs.pr_url }}"
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
