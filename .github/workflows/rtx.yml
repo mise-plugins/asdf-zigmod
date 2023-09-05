@@ -28,7 +28,7 @@ jobs:
           - command: rtx x zigmod@v51 -- zigmod version
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: jdxcode/rtx-action@v1
         with:
           tool_versions: |
