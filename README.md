@@ -5,7 +5,7 @@ Tested also [mise](https://github.com/jdx/mise).
 
 # Contents
 
-- [asdf-zigmod   ](#asdf-zigmod---)
+- [asdf-zigmod](#asdf-zigmod---)
 - [Contents](#contents)
 - [Dependencies](#dependencies)
 - [Install](#install)
