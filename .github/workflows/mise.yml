@@ -22,9 +22,13 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - macos-latest
+          - macos-14 # M1
+          - macos-13 # Intel
         target:
           - command: mise x zigmod@latest -- zigmod version
+          # Having newer "r" prefix instead of older "v", but not the latest(r89 or newer)
+          - command: mise x zigmod@r88 -- zigmod version
+          # Supporting oldest
           - command: mise x zigmod@v51 -- zigmod version
     runs-on: ${{ matrix.os }}
     steps:

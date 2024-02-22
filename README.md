@@ -48,7 +48,7 @@ $ asdf global zigmod latest
 
 # Now zigmod commands are available
 $ zigmod version
-zigmod r83 linux x86_64 musl
+zigmod r89 linux x86_64 musl
 ```
 
 Check [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to
