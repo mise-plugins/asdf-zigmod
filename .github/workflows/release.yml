@@ -13,8 +13,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: Wait other jobs
         uses: kachick/wait-other-jobs@v2
-        with:
-          github-token: '${{ secrets.GITHUB_TOKEN }}'
         if: startsWith(github.ref, 'refs/tags/')
       - name: Release
         uses: softprops/action-gh-release@v1
