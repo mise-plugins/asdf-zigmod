@@ -23,7 +23,8 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - macos-latest
+          - macos-14 # M1
+          - macos-13 # Intel
         tool-version:
           - 'latest'
           - 'r88' # Having newer "r" prefix instead of older "v", but not the latest(r89 or newer)
