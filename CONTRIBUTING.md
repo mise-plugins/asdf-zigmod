@@ -31,18 +31,5 @@ test - Run tests with `asdf plugin test`
 
 ```console
 $ makers check
-[cargo-make] INFO - makers 0.36.2
-[cargo-make] INFO - Build File: Makefile.toml
-[cargo-make] INFO - Task: check
-[cargo-make] INFO - Profile: development
-[cargo-make] INFO - Running Task: lint
-[cargo-make] INFO - Running Task: check_no_git_diff
-[cargo-make] INFO - Running Task: test
-Updating asdf-zigmod to main
-Already on 'main'
-Your branch is up to date with 'origin/main'.
-* Downloading zigmod release r83...
-zigmod r83 installation was successful!
-zigmod r83 linux x86_64 musl
-[cargo-make] INFO - Build Done in 2.65 seconds.
+...
 ```
