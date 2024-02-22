@@ -26,6 +26,7 @@ jobs:
           - macos-latest
         tool-version:
           - 'latest'
+          - 'r88' # Having newer "r" prefix instead of older "v", but not the latest(r89 or newer)
           - 'v51' # Supporting oldest
     runs-on: ${{ matrix.os }}
     steps:
