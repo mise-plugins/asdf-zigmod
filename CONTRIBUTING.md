@@ -33,3 +33,7 @@ test - Run tests with `asdf plugin test`
 $ makers check
 ...
 ```
+
+## How to release
+
+Add and push tag that have `v` prefix
