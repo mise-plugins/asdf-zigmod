@@ -2,8 +2,6 @@
 
 set -euxo pipefail
 
-shopt -s globstar
-
 shellcheck --shell=bash --external-sources \
 	bin/* --source-path=lib/ \
 	lib/*.bash \
