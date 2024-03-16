@@ -7,7 +7,7 @@ TOOL_NAME="zigmod"
 
 TOOL_TEST="zigmod version"
 
-supporting_zigmod_version_pattern='^r[7-9][0-9]'
+supporting_zigmod_version_pattern='^r'
 
 filter_supporting_zigmod_versions() {
 	grep -E "$supporting_zigmod_version_pattern"
