@@ -36,10 +36,11 @@ jobs:
       - uses: jdx/mise-action@3bc85396a273ed82bba5e53a15174bbf9dba095c # v2.0.2
         with:
           install: false
+          # Enabling plugin cache in mise-action made many problems, should be avoided
+          # https://github.com/kachick/asdf-cargo-make/pull/77
+          # https://github.com/jdx/rtx-action/issues/211
+          # https://github.com/kachick/asdf-zigmod/pull/138/commits/e47254c4d99a2f13d4265522290bbec12c3466cb
           cache: false
-          tool_versions: |
-            # Should not set cargo-make versions here. (Actually shellcheck is not used here)
-            shellcheck 0.9.0
       - name: Setup mise
         run: |
           if [ '${{ github.event_name }}' = 'pull_request' ]; then
