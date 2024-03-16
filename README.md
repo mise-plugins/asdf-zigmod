@@ -40,7 +40,7 @@ $ asdf list-all zigmod
 $ asdf install zigmod latest
 
 # NOTE:
-#   - This plugin supports zigmod versions v51 or later
+#   - This plugin supports zigmod versions r75 or later
 #   - r* is newer prefix than v*
 
 # Set a version globally (on your ~/.tool-versions file)

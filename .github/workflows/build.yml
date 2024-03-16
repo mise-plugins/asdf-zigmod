@@ -28,7 +28,7 @@ jobs:
         tool-version:
           - 'latest'
           - 'r88' # Having newer "r" prefix instead of older "v", but not the latest(r89 or newer)
-          - 'v51' # Supporting oldest
+          - 'r75' # Supporting oldest. Because of v prefix does not work in mise https://github.com/jdx/mise/issues/1637
     runs-on: ${{ matrix.os }}
     steps:
       - uses: asdf-vm/actions/plugin-test@v3

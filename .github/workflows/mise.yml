@@ -29,18 +29,24 @@ jobs:
           # Having newer "r" prefix instead of older "v", but not the latest(r89 or newer)
           - command: mise x zigmod@r88 -- zigmod version
           # Supporting oldest
-          - command: mise x zigmod@v51 -- zigmod version
+          - command: mise x zigmod@r75 -- zigmod version
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      - uses: jdx/mise-action@v2
+      - uses: jdx/mise-action@3bc85396a273ed82bba5e53a15174bbf9dba095c # v2.0.2
         with:
+          install: false
+          cache: false
           tool_versions: |
             # Should not set cargo-make versions here. (Actually shellcheck is not used here)
             shellcheck 0.9.0
       - name: Setup mise
         run: |
-          mise plugins install zigmod https://github.com/kachick/asdf-zigmod.git#${{ github.ref }}
+          if [ '${{ github.event_name }}' = 'pull_request' ]; then
+            mise plugins install --force zigmod 'https://github.com/${{ github.repository }}.git#${{ github.event.pull_request.head.sha }}'
+          else
+            mise plugins install --force zigmod 'https://github.com/${{ github.repository }}.git#${{ github.sha }}'
+          fi
       - name: Test
         run: |
           ${{ matrix.target.command }}
