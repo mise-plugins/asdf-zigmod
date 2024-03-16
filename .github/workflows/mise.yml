@@ -33,8 +33,10 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      - uses: jdx/mise-action@v2
+      - uses: jdx/mise-action@3bc85396a273ed82bba5e53a15174bbf9dba095c # v2.0.2
         with:
+          install: false
+          cache: false
           tool_versions: |
             # Should not set cargo-make versions here. (Actually shellcheck is not used here)
             shellcheck 0.9.0
