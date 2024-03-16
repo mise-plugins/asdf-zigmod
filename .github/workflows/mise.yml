@@ -29,7 +29,7 @@ jobs:
           # Having newer "r" prefix instead of older "v", but not the latest(r89 or newer)
           - command: mise x zigmod@r88 -- zigmod version
           # Supporting oldest
-          - command: mise x zigmod@v51 -- zigmod version
+          - command: mise x zigmod@r75 -- zigmod version
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
