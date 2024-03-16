@@ -41,9 +41,9 @@ jobs:
       - name: Setup mise
         run: |
           if [ '${{ github.event_name }}' = 'pull_request' ]; then
-            mise plugins install zigmod 'https://github.com/${{ github.repository }}.git#${{ github.event.pull_request.head.sha }}'
+            mise plugins install --force zigmod 'https://github.com/${{ github.repository }}.git#${{ github.event.pull_request.head.sha }}'
           else
-            mise plugins install zigmod 'https://github.com/${{ github.repository }}.git#${{ github.sha }}'
+            mise plugins install --force zigmod 'https://github.com/${{ github.repository }}.git#${{ github.sha }}'
           fi
       - name: Test
         run: |
