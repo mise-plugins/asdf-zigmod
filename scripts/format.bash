@@ -6,6 +6,6 @@ set -euxo pipefail
 shopt -s globstar
 
 shfmt --language-dialect bash --write \
-  ./**/*.bash
+	./**/*.bash
 
 dprint fmt
