@@ -3,7 +3,7 @@
 After installing asdf, running below command in this repo finishes setups.
 
 ```console
-$ asdf plugin-add cargo-make https://github.com/kachick/asdf-zigmod.git # Needed when you turned "disable_plugin_short_name_repository"
+$ asdf plugin-add cargo-make https://github.com/kachick/asdf-cargo-make.git # Needed when you turned "disable_plugin_short_name_repository"
 $ asdf install cargo-make
 $ makers setup
 cargo-make 0.36.2 is already installed
