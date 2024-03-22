@@ -14,6 +14,7 @@ Tested also [mise](https://github.com/jdx/mise).
 
 # Dependencies
 
+- `asdf-vm` or `mise`
 - `bash`, `curl`: generic POSIX utilities.
 
 # Install

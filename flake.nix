@@ -25,6 +25,7 @@
 
               # Keep minimum tools in nix layer, this repository should depend them with the asdf or mise itself(.tool-versions)
               # So written here should be also clarified in [depedndencies](README.md#Dependencies)
+              curl
               asdf-vm
               # Also do not specify mise to avoid conflict with asdf
               # mise
