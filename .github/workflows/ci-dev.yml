@@ -32,6 +32,8 @@ jobs:
       - run: nix develop --command echo 'This step should be done before any other "nix develop" steps because of measuring Nix build time'
       - run: |
           nix develop --command bash -c '
+            asdf plugin-add cargo-make https://github.com/kachick/asdf-cargo-make.git
+            asdf install cargo-make
             makers help
             makers setup
             makers check
