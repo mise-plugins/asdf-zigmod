@@ -32,9 +32,7 @@
             ];
 
             shellHook = ''
-              if [ -f "${pkgs.asdf-vm}/share/asdf-vm/asdf.sh" ]; then
-                . "${pkgs.asdf-vm}/share/asdf-vm/asdf.sh"
-              fi
+              . "${pkgs.asdf-vm}/share/asdf-vm/asdf.sh"
             '';
           };
       }
