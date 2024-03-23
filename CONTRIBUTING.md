@@ -1,8 +1,8 @@
 # Contributing
 
-To maintain this repository assumes you are not using ancient bash versions as macOS included 3.x.\
-I recommend to use [Nix package manager](https://nixos.org/) to prepare basic environments.\
-Including the [flake.nix](flake.nix).
+Maintaining this repository assumes that you are not using old versions of bash such as 3.x, which is included in MacOS\
+I recommend using the [Nix package manager](https://nixos.org/) to prepare base environments.\
+This repository contains the [flake.nix](flake.nix).
 
 After installing asdf, running below command in this repo finishes setups.
 
