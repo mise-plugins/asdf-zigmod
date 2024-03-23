@@ -11,7 +11,7 @@ shellcheck --shell=bash --external-sources \
 	scripts/*.bash
 
 shfmt --language-dialect bash --diff \
-	./**/*.bash
+	./**/*.bash bin/**/*
 
 dprint check
 
